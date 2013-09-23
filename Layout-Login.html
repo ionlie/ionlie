@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Login Layout</title>
+    <script src="Script/jquery-1.9.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.username').focus(function () {
+                $('.ShowErrorUserName').text(' ');
+                $('.username').css({
+                    'border-color': 'none',
+                    'border': '1px solid'
+                });
+            });
+            $('.password').focus(function () {
+                $('.ShowErrorPassword').text(' ');
+                $('.password').css({
+                    'border-color': 'none',
+                    'border': '1px solid'
+                });
+            });
+            $(function () {
+                $('.btnSubmit').on('click', function () {
+                    var username = $('.username').val();
+                    var password = $('.password').val();
+                    if (username == "" && password == "") {
+                        $('.ShowErrorUserName').text('Please Type User Name');
+                        $('.username').css('border-color', 'red');
+                        $('.ShowErrorPassword').text('Please Type Password');
+                        $('.password').css('border-color', 'red');
+                        return false;
+                    }
+                    if (username == "") {
+                        $('.ShowErrorUserName').text('Please Type User Name');
+                        $('.username').css('border-color', 'red');
+                        return false;
+                    }
+                    if (password == "") {
+                        $('.ShowErrorPassword').text('Please Type Password');
+                        $('.password').css('border-color', 'red');
+                        return false;
+                    }
+                    if (username != "" && password != "") {
+                        if (username.length > 15) {
+                            $('.ShowErrorUserName').text('User Name is more than 15 character');
+                            $('.username').css('border-color', 'red');
+                        }
+                        if (password.length > 15) {
+                            $('.ShowErrorPassword').text('Password is more than 15 character');
+                            $('.password').css('border-color', 'red');
+                        }
+                    }
+
+                });
+            });
+        });
+    </script>
+    <style>
+        .ShowErrorUserName {
+            color: red;
+        }
+
+        .ShowErrorPassword {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>User Name
+            </td>
+            <td>
+                <input type="text" class="username" />
+            </td>
+            <td>
+                <label class="ShowErrorUserName"></label>
+            </td>
+        </tr>
+        <tr>
+            <td>Password
+            </td>
+            <td>
+                <input type="password" class="password" />
+            </td>
+            <td>
+                <label class="ShowErrorPassword"></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" class="btnSubmit" value="Login" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

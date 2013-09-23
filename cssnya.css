@@ -42,31 +42,14 @@ body  {
 
 a {
 	color: blue;
-	text-decoration: underline;
-}
-
-a:active {
-	color: yellow;
 	text-decoration: none;
 }
 
-a:link {
-	color: blue;
-	text-decoration: underline;
+.logintext {
+    text-decoration:none;
+    color:red;
 }
 
-a:visited {
-	color: purple;
-	text-decoration: none;
-}
-
-a:focus {
-	color: red;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-a:hover {
-	color: red;
-	text-decoration: none;
-}
+    .logintext:hover {
+        cursor:pointer;
+    }
