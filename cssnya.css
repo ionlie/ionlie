@@ -14,13 +14,10 @@ body  {
 	text-align: left;
 } 
 .twoColFixRtHdr #header { 
-	background: #DDDDDD; 
-	padding: 0 10px 0 20px;
+	background: #DDDDDD;
+    height:100px;
 } 
-.twoColFixRtHdr #header h1 {
-	margin: 0; 
-	padding: 10px 0; 
-}
+
 .twoColFixRtHdr #sidebar1 {
 	float: right; 
 	width: 200px; 
@@ -47,7 +44,6 @@ a {
 
 .logintext {
     text-decoration:none;
-    color:red;
 }
 
     .logintext:hover {

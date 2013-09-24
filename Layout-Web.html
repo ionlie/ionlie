@@ -2,11 +2,20 @@
 <head>
     <title>LayOut Web</title>
     <link href="cssnya.css" rel="stylesheet" type="text/css">
+    <link href="Menu.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="Script/Js/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="Script/Js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
     <link href="Script/Js/jquery-ui-1.10.3.custom/css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript">
         $(document).ready(function () {
+            $('.searchbox').focus(function () {
+                $('.searchbox').val('');
+            });
+            $('.searchbox').blur(function () {
+                if ($('.searchbox').val() == "") {
+                    $('.searchbox').val('Search Here');
+                }
+            });
             $("#divDialog").dialog({
                 resizable: false,
                 autoOpen: false,
@@ -83,6 +92,8 @@
                         //    }
                         //}
 
+
+
                     });
                 });
             });
@@ -97,7 +108,20 @@
 
     <div id="container">
         <div id="header">
-            <h1>Header</h1>
+            <nav id="test">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Forum</a></li>
+                    <li><a href="#">Lounge Alumni</a>
+                        <ul>
+                            <li><a href="#"><label class="logintext">Login</label></a></li>
+                            <li><a href="#">Profil</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+            <input class="searchbox" type="text" value="Search Here" />
         </div>
         <div id="sidebar1" style="text-align: justify; padding-left: -5px;">
             <div>
@@ -122,10 +146,6 @@
             <div>
                 <h3>Online User</h3>
                 Now, <b>5</b> User Is Online
-    <br />
-                <br />
-                <a href="#">
-                    <label class="logintext">Login</label></a>
             </div>
             <!-- end #sidebar1 -->
         </div>
@@ -177,7 +197,7 @@
         </table>
         <div>
             <input type="button" class="btnSubmit" value="Login" />
-            <input type="button" class="btnCencel" value="Cencel" />
+            <input type="button" class="btnCancel" value="Cancel" />
         </div>
     </div>
 </body>
