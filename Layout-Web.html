@@ -1,0 +1,184 @@
+﻿<html>
+<head>
+    <title>LayOut Web</title>
+    <link href="cssnya.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="Script/Js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="Script/Js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+    <link href="Script/Js/jquery-ui-1.10.3.custom/css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#divDialog").dialog({
+                resizable: false,
+                autoOpen: false,
+                modal: true,
+                width: 400,
+                height: 200,
+                //buttons: {
+                //    'Continue': function () {
+                //        $(this).dialog('close');
+                //        alert('You clicked continue');
+                //    }, // end continue button
+                //    Cancel: function () {
+                //        $(this).dialog('close');
+                //    } //end cancel button
+                //}//end buttons
+
+            });
+
+            $('.btnCencel').click(function () {
+                $('#divDialog').dialog('close');
+            });
+
+            $('.logintext').click(function () {
+
+                $('#divDialog').dialog('open');
+
+            });
+
+
+            $(document).ready(function () {
+                $('.username').focus(function () {
+                    $('.ShowErrorUserName').text(' ');
+                    $('.username').css({
+                        'border-color': 'none',
+                        'border': '1px solid'
+                    });
+                });
+                $('.password').focus(function () {
+                    $('.ShowErrorPassword').text(' ');
+                    $('.password').css({
+                        'border-color': 'none',
+                        'border': '1px solid'
+                    });
+                });
+                $(function () {
+                    $('.btnSubmit').on('click', function () {
+                        var username = $('.username').val();
+                        var password = $('.password').val();
+                        if (username == "" && password == "") {
+                            $('.ShowErrorUserName').text('*');
+                            $('.username').css('border-color', 'red');
+                            $('.ShowErrorPassword').text('*');
+                            $('.password').css('border-color', 'red');
+                            return false;
+                        }
+                        if (username == "") {
+                            $('.ShowErrorUserName').text('*');
+                            $('.username').css('border-color', 'red');
+                            return false;
+                        }
+                        if (password == "") {
+                            $('.ShowErrorPassword').text('*');
+                            $('.password').css('border-color', 'red');
+                            return false;
+                        }
+                        //if (username != "" && password != "") {
+                        //    if (username.length > 15) {
+                        //        $('.ShowErrorUserName').text('User Name is more than 15 character');
+                        //        $('.username').css('border-color', 'red');
+                        //    }
+                        //    if (password.length > 15) {
+                        //        $('.ShowErrorPassword').text('Password is more than 15 character');
+                        //        $('.password').css('border-color', 'red');
+                        //    }
+                        //}
+
+                    });
+                });
+            });
+
+        });
+
+
+    </script>
+</head>
+
+<body class="twoColFixRtHdr">
+
+    <div id="container">
+        <div id="header">
+            <h1>Header</h1>
+        </div>
+        <div id="sidebar1" style="text-align: justify; padding-left: -5px;">
+            <div>
+                <h3>Sidebar1 Content</h3>
+                <p>The background color on this div will only show for the length of the content. If you'd like a dividing line instead, place a border on the right side of the #mainContent div if it will always contain more content. </p>
+            </div>
+            <div>
+                <h3>Kategori</h3>
+                <ul>
+                    <li><a href="#">Kategori 1 </a></li>
+                    <li><a href="#">Kategori 2 </a></li>
+                    <li><a href="#">Kategori 3 </a></li>
+                    <li><a href="#">Kategori 4 </a></li>
+                    <ul>
+                        <li>Sub 4.1</li>
+                        <li>Sub 4.2</li>
+                        <li>Sub 4.3</li>
+                        <li>Sub 4.4</li>
+                    </ul>
+                </ul>
+            </div>
+            <div>
+                <h3>Online User</h3>
+                Now, <b>5</b> User Is Online
+    <br />
+                <br />
+                <a href="#">
+                    <label class="logintext">Login</label></a>
+            </div>
+            <!-- end #sidebar1 -->
+        </div>
+        <div id="mainContent" style="text-align: justify;">
+            <h1>Artikel</h1>
+            <h2>Judul Artikel</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent aliquam,  justo convallis luctus rutrum, erat nulla fermentum diam, at nonummy quam  ante ac quam. Maecenas urna purus, fermentum id, molestie in, commodo  porttitor, felis. Nam blandit quam ut lacus. Quisque ornare risus quis  ligula. Phasellus tristique purus a augue condimentum adipiscing.<br />
+                <a href="#">Read More..</a>
+            </p>
+
+            <h2>Judul Artikel</h2>
+            <p>
+                Aenean  sagittis. Etiam leo pede, rhoncus venenatis, tristique in, vulputate at,  odio. Donec et ipsum et sapien vehicula nonummy. Suspendisse potenti. Fusce  varius urna id quam. Sed neque mi, varius eget, tincidunt nec, suscipit id,  libero. In eget purus. Vestibulum ut nisl. Donec eu mi sed turpis feugiat  feugiat. Integer turpis arcu, pellentesque eget, cursus et, fermentum ut,  sapien. Fusce metus mi, eleifend sollicitudin, molestie id, varius et, nibh.  Donec nec libero.<br />
+                <a href="#">Read More..</a>
+            </p>
+            <!-- end #mainContent -->
+        </div>
+        <br class="clearfloat" />
+        <div id="footer">
+            <p>Footer</p>
+            <!-- end #footer -->
+        </div>
+        <!-- end #container -->
+    </div>
+
+    <div id="divDialog" title="Login">
+        <table>
+            <tr>
+                <td>User Name
+                </td>
+                <td>
+                    <input type="text" class="username" />
+                </td>
+                <td>
+                    <label class="ShowErrorUserName"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Password
+                </td>
+                <td>
+                    <input type="password" class="password" />
+                </td>
+                <td>
+                    <label class="ShowErrorPassword"></label>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <input type="button" class="btnSubmit" value="Login" />
+            <input type="button" class="btnCencel" value="Cencel" />
+        </div>
+    </div>
+</body>
+</html>
