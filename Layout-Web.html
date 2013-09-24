@@ -2,7 +2,95 @@
 <head>
     <title>LayOut Web</title>
     <link href="cssnya.css" rel="stylesheet" type="text/css">
-    <script src="Script/jquery-1.9.0.js"></script>
+    <script type="text/javascript" src="Script/Js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="Script/Js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+    <link href="Script/Js/jquery-ui-1.10.3.custom/css/smoothness/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#divDialog").dialog({
+                resizable: false,
+                autoOpen: false,
+                modal: true,
+                width: 400,
+                height: 200,
+                //buttons: {
+                //    'Continue': function () {
+                //        $(this).dialog('close');
+                //        alert('You clicked continue');
+                //    }, // end continue button
+                //    Cancel: function () {
+                //        $(this).dialog('close');
+                //    } //end cancel button
+                //}//end buttons
+
+            });
+
+            $('.btnCencel').click(function () {
+                $('#divDialog').dialog('close');
+            });
+
+            $('.logintext').click(function () {
+
+                $('#divDialog').dialog('open');
+
+            });
+
+
+            $(document).ready(function () {
+                $('.username').focus(function () {
+                    $('.ShowErrorUserName').text(' ');
+                    $('.username').css({
+                        'border-color': 'none',
+                        'border': '1px solid'
+                    });
+                });
+                $('.password').focus(function () {
+                    $('.ShowErrorPassword').text(' ');
+                    $('.password').css({
+                        'border-color': 'none',
+                        'border': '1px solid'
+                    });
+                });
+                $(function () {
+                    $('.btnSubmit').on('click', function () {
+                        var username = $('.username').val();
+                        var password = $('.password').val();
+                        if (username == "" && password == "") {
+                            $('.ShowErrorUserName').text('*');
+                            $('.username').css('border-color', 'red');
+                            $('.ShowErrorPassword').text('*');
+                            $('.password').css('border-color', 'red');
+                            return false;
+                        }
+                        if (username == "") {
+                            $('.ShowErrorUserName').text('*');
+                            $('.username').css('border-color', 'red');
+                            return false;
+                        }
+                        if (password == "") {
+                            $('.ShowErrorPassword').text('*');
+                            $('.password').css('border-color', 'red');
+                            return false;
+                        }
+                        //if (username != "" && password != "") {
+                        //    if (username.length > 15) {
+                        //        $('.ShowErrorUserName').text('User Name is more than 15 character');
+                        //        $('.username').css('border-color', 'red');
+                        //    }
+                        //    if (password.length > 15) {
+                        //        $('.ShowErrorPassword').text('Password is more than 15 character');
+                        //        $('.password').css('border-color', 'red');
+                        //    }
+                        //}
+
+                    });
+                });
+            });
+
+        });
+
+
+    </script>
 </head>
 
 <body class="twoColFixRtHdr">
@@ -10,7 +98,6 @@
     <div id="container">
         <div id="header">
             <h1>Header</h1>
-            <!-- end #header -->
         </div>
         <div id="sidebar1" style="text-align: justify; padding-left: -5px;">
             <div>
@@ -37,7 +124,7 @@
                 Now, <b>5</b> User Is Online
     <br />
                 <br />
-                <a href="Layout-Login.html">
+                <a href="#">
                     <label class="logintext">Login</label></a>
             </div>
             <!-- end #sidebar1 -->
@@ -63,6 +150,35 @@
             <!-- end #footer -->
         </div>
         <!-- end #container -->
+    </div>
+
+    <div id="divDialog" title="Login">
+        <table>
+            <tr>
+                <td>User Name
+                </td>
+                <td>
+                    <input type="text" class="username" />
+                </td>
+                <td>
+                    <label class="ShowErrorUserName"></label>
+                </td>
+            </tr>
+            <tr>
+                <td>Password
+                </td>
+                <td>
+                    <input type="password" class="password" />
+                </td>
+                <td>
+                    <label class="ShowErrorPassword"></label>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <input type="button" class="btnSubmit" value="Login" />
+            <input type="button" class="btnCencel" value="Cencel" />
+        </div>
     </div>
 </body>
 </html>
